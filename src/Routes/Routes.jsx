@@ -7,6 +7,8 @@ import Login from "../Pages/Authentication/Login";
 import Register from "../Pages/Authentication/Register";
 import AddTouristsSpot from "../Pages/AddTouristsSpot";
 import PrivateRoute from "./PrivateRoutes";
+import TouristSpotDetails from "../Components/TouristSpotDetails";
+import AllTouristSpot from "../Pages/AllTouristSpot";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,15 +20,15 @@ const router = createBrowserRouter([
         element: <Home></Home>,
         loader: () => fetch("http://localhost:5000/touristSpot"),
       },
-      //   {
-      //     path: "/estate/:id",
-      //     element: (
-      //       <PrivateRoute>
-      //         <EstateDetails></EstateDetails>
-      //       </PrivateRoute>
-      //     ),
-      //     loader: () => fetch("/estate.json"),
-      //   },
+      {
+        path: "/touristSpot/:_id",
+        element: (
+          <PrivateRoute>
+            <TouristSpotDetails></TouristSpotDetails>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/touristSpot"),
+      },
       {
         path: "/login",
         element: <Login></Login>,
@@ -40,6 +42,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddTouristsSpot></AddTouristsSpot>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/allTouristsSpot",
+        element: (
+          <PrivateRoute>
+            <AllTouristSpot></AllTouristSpot>
           </PrivateRoute>
         ),
       },
