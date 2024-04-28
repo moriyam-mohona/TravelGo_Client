@@ -1,15 +1,15 @@
 import { Helmet } from "react-helmet-async";
 import { useLoaderData, useParams } from "react-router-dom";
 
-const TouristSpotDetails = () => {
-  const touristSpot = useLoaderData();
+const AllTouristSpotDetails = () => {
+  const allTouristSpot = useLoaderData();
   const { _id } = useParams();
-  const currentSpot = touristSpot.find((e) => e._id === _id);
-
+  const currentSpot = allTouristSpot.find((e) => e._id === _id);
+  console.log(currentSpot);
   return (
     <div className="px-2 sm:px-5 md:px-10 lg:px-10">
       <Helmet>
-        <title>TravelGo | TouristSpot Details</title>
+        <title>TravelGo | AllTouristSpot Details</title>
       </Helmet>
       {currentSpot && (
         <div className="grid grid-cols-1 lg:grid-cols-5 rounded-xl px-4 lg:px-8 mb-16 lg:gap-8">
@@ -66,4 +66,4 @@ const TouristSpotDetails = () => {
   );
 };
 
-export default TouristSpotDetails;
+export default AllTouristSpotDetails;

@@ -65,7 +65,7 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
-                  to="/allTouristSpot"
+                  to="/allTouristsSpot"
                   style={({ isActive }) => ({
                     backgroundColor: isActive ? "#008EC4 " : "",
                     color: isActive ? "white" : "black",
@@ -123,7 +123,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to="/ allTouristSpot"
+                to="/allTouristsSpot"
                 style={({ isActive }) => ({
                   backgroundColor: isActive ? "#008EC4 " : "",
                   color: isActive ? "white" : "black",

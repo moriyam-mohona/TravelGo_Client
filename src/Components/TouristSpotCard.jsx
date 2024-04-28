@@ -20,7 +20,7 @@ const TouristSpotCard = ({ touristSpot }) => {
       </p>
       <p className="text-xl font-medium">{averageCost}</p>
       <Link
-        to={`touristSpot/${_id}`}
+        to={`/touristSpot/${_id}`}
         className="btn glass bg-[#008EC4] text-white px-6 py-2 rounded-full mt-1 lg:mt-3 text-lg font-medium flex item-center"
       >
         View Details →

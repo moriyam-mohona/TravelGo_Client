@@ -14,6 +14,8 @@ const Home = () => {
         <title>TravelGo | Home</title>
       </Helmet>
 
+      {/* Sections */}
+
       <Banner></Banner>
       <TouristsSpots></TouristsSpots>
       <ChooseUs></ChooseUs>
