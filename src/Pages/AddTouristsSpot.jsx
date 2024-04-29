@@ -51,7 +51,7 @@ function AddTouristsSpotForm() {
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",
-            text: "User Added Successfully",
+            text: "A New Spot Added Successfully",
             icon: "success",
             confirmButtonText: "Cool",
           });

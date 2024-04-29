@@ -1,9 +1,23 @@
+import { useEffect, useState } from "react";
+import { useLoaderData, useParams } from "react-router-dom";
+
 const UpdatePage = () => {
-  const handleSubmit = (e) => {
+  const { id } = useParams();
+  console.log(id);
+
+  const [spot, setSpot] = useState({});
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/touristSpot/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setSpot(data);
+        console.log(data);
+      });
+  }, [id]);
+  const handleUpdate = (e) => {
     e.preventDefault();
-
     const form = e.target;
-
     const image = form.image.value;
     const touristsSpotName = form.touristsSpotName.value;
     const countryName = form.countryName.value;
@@ -14,7 +28,7 @@ const UpdatePage = () => {
     const travelTime = form.travelTime.value;
     const totalVisitors = form.totalVisitors.value;
 
-    const newTouristSpot = {
+    const updateSpot = {
       image,
       touristsSpotName,
       countryName,
@@ -25,23 +39,23 @@ const UpdatePage = () => {
       travelTime,
       totalVisitors,
     };
-    console.log(newTouristSpot);
+    console.log(updateSpot);
 
     //send data to the server
-    fetch("http://localhost:5000/touristSpot", {
-      method: "POST",
+    fetch(`http://localhost:5000/updateSpot/${id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newTouristSpot),
+      body: JSON.stringify(updateSpot),
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
+        console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",
-            text: "User Added Successfully",
+            text: "Spot Updated Successfully",
             icon: "success",
             confirmButtonText: "Cool",
           });
@@ -53,7 +67,7 @@ const UpdatePage = () => {
       <h2 className="text-3xl font-bold mb-4 mx-auto">
         Update Tourists Spot Details
       </h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleUpdate} className="space-y-4">
         <div>
           <label className="block">Image URL:</label>
           <input

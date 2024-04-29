@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyList = () => {
   const { user } = useContext(AuthContext);
@@ -14,16 +15,34 @@ const MyList = () => {
       });
   }, [user, control]);
   const handleDelete = (_id) => {
-    console.log(_id);
-    fetch(`http://localhost:5000/touristSpot/${_id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deleteCount > 0) {
-          setControl(!control);
-        }
-      });
+    // console.log(_id);
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+        fetch(`http://localhost:5000/touristSpot/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deleteCount > 0) {
+              setControl(!control);
+            }
+          });
+      }
+    });
   };
   return (
     <div className="mb-14 w-full px-2 sm:px-5 md:px-10 lg:px-14">

@@ -76,12 +76,13 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/myList/:_id",
+        path: "/myList/:id",
         element: (
           <PrivateRoute>
             <UpdatePage></UpdatePage>
           </PrivateRoute>
         ),
+        loader: () => fetch("http://localhost:5000/touristSpot"),
       },
     ],
   },
