@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoutes";
 import TouristSpotDetails from "../Components/TouristSpotDetails";
 import AllTouristSpot from "../Pages/AllTouristSpot";
 import AllTouristSpotDetails from "../Pages/AllTouristSpotDetails";
+import MyList from "../Pages/MyList";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -62,6 +63,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddTouristsSpot></AddTouristsSpot>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/myList",
+        element: (
+          <PrivateRoute>
+            <MyList></MyList>
           </PrivateRoute>
         ),
       },

@@ -5,7 +5,6 @@ const AllTouristSpotDetails = () => {
   const allTouristSpot = useLoaderData();
   const { _id } = useParams();
   const currentSpot = allTouristSpot.find((e) => e._id === _id);
-  console.log(currentSpot);
   return (
     <div className="px-2 sm:px-5 md:px-10 lg:px-10">
       <Helmet>

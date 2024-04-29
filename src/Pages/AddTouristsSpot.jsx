@@ -1,8 +1,10 @@
-// import { useState } from "react";
+import { useContext } from "react";
 import Swal from "sweetalert2";
-// const Swal = require("sweetalert2");
+import { AuthContext } from "../Providers/AuthProvider";
 
 function AddTouristsSpotForm() {
+  const { user } = useContext(AuthContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -17,8 +19,8 @@ function AddTouristsSpotForm() {
     const seasonality = form.seasonality.value;
     const travelTime = form.travelTime.value;
     const totalVisitors = form.totalVisitors.value;
-    const userEmail = form.userEmail.value;
-    const userName = form.userName.value;
+    const userEmail = user.email;
+    const userName = user.displayName;
 
     const newTouristSpot = {
       image,
@@ -158,28 +160,29 @@ function AddTouristsSpotForm() {
         </div>
 
         <div>
-          <label className="block">User Email:</label>
+          <label className="block ">User Email</label>
           <input
+            className="appearance-none w-full border border-gray-300  rounded py-3 px-3  focus:outline-none focus:border-blue-500"
+            id="email"
             type="email"
-            name="userEmail"
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
-            required
+            value={user.email}
+            readOnly
           />
         </div>
 
         <div>
-          <label className="block">User Name:</label>
+          <label className="block ">User Name</label>
           <input
+            className="appearance-none w-full border border-gray-300  rounded py-3 px-3  focus:outline-none focus:border-blue-500"
             type="text"
-            name="userName"
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
-            required
+            value={user.displayName}
+            readOnly
           />
         </div>
 
         <button
           type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 btn "
+          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 btn w-full "
         >
           Add
         </button>

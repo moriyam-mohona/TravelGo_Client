@@ -36,6 +36,8 @@ const Register = () => {
 
     createUser(email, password)
       .then((result) => {
+        const user = { email };
+
         if (result.user) {
           navigate("/");
           toast.success("User created successfully");
