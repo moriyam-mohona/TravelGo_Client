@@ -1,10 +1,4 @@
-import { useContext } from "react";
-import Swal from "sweetalert2";
-import { AuthContext } from "../Providers/AuthProvider";
-
-function AddTouristsSpotForm() {
-  const { user } = useContext(AuthContext);
-
+const UpdatePage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -19,8 +13,6 @@ function AddTouristsSpotForm() {
     const seasonality = form.seasonality.value;
     const travelTime = form.travelTime.value;
     const totalVisitors = form.totalVisitors.value;
-    const userEmail = user.email;
-    const userName = user.displayName;
 
     const newTouristSpot = {
       image,
@@ -32,10 +24,8 @@ function AddTouristsSpotForm() {
       seasonality,
       travelTime,
       totalVisitors,
-      userEmail,
-      userName,
     };
-    // console.log(newTouristSpot);
+    console.log(newTouristSpot);
 
     //send data to the server
     fetch("http://localhost:5000/touristSpot", {
@@ -58,10 +48,11 @@ function AddTouristsSpotForm() {
         }
       });
   };
-
   return (
     <div className="max-w-lg mx-auto">
-      <h2 className="text-3xl font-bold mb-4 mx-auto"> Tourists Spot</h2>
+      <h2 className="text-3xl font-bold mb-4 mx-auto">
+        Update Tourists Spot Details
+      </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block">Image URL:</label>
@@ -158,37 +149,15 @@ function AddTouristsSpotForm() {
             className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
           />
         </div>
-
-        <div>
-          <label className="block ">User Email</label>
-          <input
-            className="appearance-none w-full border border-gray-300  rounded py-3 px-3  focus:outline-none focus:border-blue-500"
-            id="email"
-            type="email"
-            value={user.email}
-            readOnly
-          />
-        </div>
-
-        <div>
-          <label className="block ">User Name</label>
-          <input
-            className="appearance-none w-full border border-gray-300  rounded py-3 px-3  focus:outline-none focus:border-blue-500"
-            type="text"
-            value={user.displayName}
-            readOnly
-          />
-        </div>
-
         <button
           type="submit"
           className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 btn w-full "
         >
-          Add
+          Update
         </button>
       </form>
     </div>
   );
-}
+};
 
-export default AddTouristsSpotForm;
+export default UpdatePage;

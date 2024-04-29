@@ -11,6 +11,7 @@ import TouristSpotDetails from "../Components/TouristSpotDetails";
 import AllTouristSpot from "../Pages/AllTouristSpot";
 import AllTouristSpotDetails from "../Pages/AllTouristSpotDetails";
 import MyList from "../Pages/MyList";
+import UpdatePage from "../Pages/UpdatePage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -71,6 +72,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyList></MyList>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/myList/:_id",
+        element: (
+          <PrivateRoute>
+            <UpdatePage></UpdatePage>
           </PrivateRoute>
         ),
       },
