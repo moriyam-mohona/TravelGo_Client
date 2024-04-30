@@ -7,7 +7,9 @@ const SpecificCountry = () => {
   //   console.log(countries);
   return (
     <div className="mb-14 w-full px-2 sm:px-5 md:px-10 lg:px-14">
-      <h2>{name}</h2>
+      <h2 className="text-5xl font-bold text-[#008EC4] text-center mb-14">
+        {name}
+      </h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {countries.map((country, i) => (
           <TouristSpotCard key={i} touristSpot={country}></TouristSpotCard>

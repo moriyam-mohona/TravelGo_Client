@@ -4,8 +4,8 @@ import { SiFsecure } from "react-icons/si";
 
 const ChooseUs = () => {
   return (
-    <div>
-      <h2 className="text-center text-7xl font-bold text-[#008EC4] mb-14">
+    <div className="mb-14">
+      <h2 className="text-center text-5xl font-bold text-[#008EC4] mb-14">
         Why Choose Us
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-16">

@@ -7,10 +7,10 @@ const Review = () => {
   return (
     <div>
       <div className=" flex flex-col items-center justify-center  mx-auto sm:p-10">
-        <p className="p-2 text-sm font-medium  text-center uppercase">
+        <p className="text-center text-5xl font-bold text-[#008EC4] mb-5">
           Development team
         </p>
-        <h1 className="text-4xl font-bold leading-none text-center sm:text-5xl">
+        <h1 className="text-center text-3xl font-bold mb-14">
           The talented people behind the scenes
         </h1>
         <div className="flex flex-col md:flex-row mt-8 w-full">

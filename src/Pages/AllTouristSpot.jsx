@@ -20,15 +20,15 @@ const AllTouristSpot = () => {
 
   return (
     <div className="mb-14 w-full px-2 sm:px-5 md:px-10 lg:px-14">
-      <h3 className="text-7xl font-bold text-[#008EC4] text-center">
+      <h3 className="text-5xl font-bold text-[#008EC4] text-center">
         Popular Tourist Spot
       </h3>
       <select
-        className="select select-info w-full max-w-xs"
+        className="select select-info w-60  mt-14"
         value={sortOrder}
         onChange={handleSortChange}
       >
-        <option disabled>Select Sort Style By Average Cost</option>
+        {/* <option disabled>Select Sort Style By Average Cost</option> */}
         <option value="Ascending">Ascending</option>
         <option value="Descending">Descending</option>
       </select>

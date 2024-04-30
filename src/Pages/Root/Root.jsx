@@ -24,14 +24,18 @@ const Root = () => {
   return (
     <div className={`${darkMode ? "dark" : "light "}`}>
       <div className="dark:bg-gray-700">
-        <button
-          onClick={() => {
-            toggleTheme();
-          }}
-        >
-          {darkMode ? <IoSunnyOutline /> : <IoMoonSharp />}
-        </button>
-        <Navbar></Navbar>
+        <Navbar>
+          {" "}
+          <button
+            className="flex-center text-4xl"
+            onClick={() => {
+              toggleTheme();
+            }}
+          >
+            {darkMode ? <IoSunnyOutline /> : <IoMoonSharp />}
+          </button>
+        </Navbar>
+
         <Outlet></Outlet>
         <Toaster />
         <Footer></Footer>
