@@ -63,7 +63,7 @@ function AddTouristsSpotForm() {
   };
 
   return (
-    <div className="max-w-lg mx-auto">
+    <div className="mb-14 w-full px-2 sm:px-5 md:px-10 lg:px-14">
       <h2 className="text-3xl font-bold mb-4 mx-auto"> Tourists Spot</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

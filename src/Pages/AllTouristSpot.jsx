@@ -23,15 +23,17 @@ const AllTouristSpot = () => {
       <h3 className="text-5xl font-bold text-[#008EC4] text-center">
         Popular Tourist Spot
       </h3>
-      <select
-        className="select select-info w-60  mt-14"
-        value={sortOrder}
-        onChange={handleSortChange}
-      >
-        {/* <option disabled>Select Sort Style By Average Cost</option> */}
-        <option value="Ascending">Ascending</option>
-        <option value="Descending">Descending</option>
-      </select>
+      <div className="text-center ">
+        <select
+          className="select select-info  mt-14 w-72"
+          value={sortOrder}
+          onChange={handleSortChange}
+        >
+          {/* <option disabled>Select Sort Style By Average Cost</option> */}
+          <option value="Ascending">Ascending</option>
+          <option value="Descending">Descending</option>
+        </select>
+      </div>
       <div className="mt-20 mb-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:mx-auto">
         {sortedTouristSpots.map((touristSpot) => (
           <AllTouristSpotCard
