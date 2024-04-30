@@ -51,14 +51,14 @@ function AddTouristsSpotForm() {
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
-        if (data.insertedId) {
-          Swal.fire({
-            title: "Success!",
-            text: "A New Spot Added Successfully",
-            icon: "success",
-            confirmButtonText: "Cool",
-          });
-        }
+
+        Swal.fire({
+          title: "Success!",
+          text: "A New Spot Added Successfully",
+          icon: "success",
+          confirmButtonText: "Cool",
+        });
+        e.target.reset();
       });
   };
 

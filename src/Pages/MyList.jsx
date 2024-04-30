@@ -9,7 +9,7 @@ const MyList = () => {
   const [control, setControl] = useState(false);
   useEffect(() => {
     fetch(
-      `https://assignment-10-server-five-gamma.vercel.app/api/v1/${user?.email}`
+      `https://assignment-10-server-five-gamma.vercel.app/api/v1/touristSpot/byEmail/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -35,16 +35,14 @@ const MyList = () => {
           icon: "success",
         });
         fetch(
-          `https://assignment-10-server-five-gamma.vercel.app/api/v1/${_id}`,
+          `https://assignment-10-server-five-gamma.vercel.app/api/v1/touristSpot/${_id}`,
           {
             method: "DELETE",
           }
         )
           .then((res) => res.json())
           .then((data) => {
-            if (data.deleteCount > 0) {
-              setControl(!control);
-            }
+            setControl(!control);
           });
       }
     });

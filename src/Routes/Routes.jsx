@@ -90,8 +90,6 @@ const router = createBrowserRouter([
             <UpdatePage></UpdatePage>
           </PrivateRoute>
         ),
-        loader: () =>
-          fetch("https://assignment-10-server-five-gamma.vercel.app/api/v1"),
       },
     ],
   },

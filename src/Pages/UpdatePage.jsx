@@ -4,16 +4,16 @@ import Swal from "sweetalert2";
 
 const UpdatePage = () => {
   const { id } = useParams();
-  console.log(id);
 
   const [spot, setSpot] = useState({});
 
   useEffect(() => {
-    fetch(`https://assignment-10-server-five-gamma.vercel.app/api/v1/${id}`)
+    fetch(
+      `https://assignment-10-server-five-gamma.vercel.app/api/v1/touristSpot/byId/${id}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setSpot(data);
-        console.log(data);
       });
   }, [id]);
   const handleUpdate = (e) => {
@@ -43,24 +43,26 @@ const UpdatePage = () => {
     console.log(updateSpot);
 
     //send data to the server
-    fetch(`assignment-10-server-nine-liard.vercel.app/updateSpot/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateSpot),
-    })
+    fetch(
+      `https://assignment-10-server-five-gamma.vercel.app/api/v1/updateSpot/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateSpot),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.modifiedCount > 0) {
-          Swal.fire({
-            title: "Success!",
-            text: "Spot Updated Successfully",
-            icon: "success",
-            confirmButtonText: "Cool",
-          });
-        }
+
+        Swal.fire({
+          title: "Success!",
+          text: "Spot Updated Successfully",
+          icon: "success",
+          confirmButtonText: "Cool",
+        });
       });
   };
   return (
