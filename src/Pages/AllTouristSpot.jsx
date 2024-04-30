@@ -12,9 +12,9 @@ const AllTouristSpot = () => {
 
   const sortedTouristSpots = [...allTouristSpots].sort((a, b) => {
     if (sortOrder === "Ascending") {
-      return a.averageCost.localeCompare(b.averageCost);
+      return a.averageCost - b.averageCost;
     } else {
-      return b.averageCost.localeCompare(a.averageCost);
+      return b.averageCost - a.averageCost;
     }
   });
 

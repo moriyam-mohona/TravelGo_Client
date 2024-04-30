@@ -35,15 +35,15 @@ const router = createBrowserRouter([
           ),
       },
       {
-        path: "/allTouristsSpot/:_id",
+        path: "/allTouristsSpot/:id",
         element: (
           <PrivateRoute>
             <AllTouristSpotDetails></AllTouristSpotDetails>
           </PrivateRoute>
         ),
-        loader: () =>
+        loader: ({ params }) =>
           fetch(
-            "https://assignment-10-server-five-gamma.vercel.app/api/v1/touristSpot"
+            `https://assignment-10-server-five-gamma.vercel.app/api/v1/touristSpot/byId/${params.id}`
           ),
       },
       {

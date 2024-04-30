@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 
 const AllTouristSpotDetails = () => {
   const currentSpot = useLoaderData();
+  console.log(currentSpot);
 
   return (
     <div className="px-2 sm:px-5 md:px-10 lg:px-10">
