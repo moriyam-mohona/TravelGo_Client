@@ -12,6 +12,7 @@ import AllTouristSpot from "../Pages/AllTouristSpot";
 import AllTouristSpotDetails from "../Pages/AllTouristSpotDetails";
 import MyList from "../Pages/MyList";
 import UpdatePage from "../Pages/UpdatePage";
+import SpecificCountry from "../Pages/SpecificCountry";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -90,6 +91,18 @@ const router = createBrowserRouter([
             <UpdatePage></UpdatePage>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/countries/:name",
+        element: (
+          <PrivateRoute>
+            <SpecificCountry></SpecificCountry>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment-10-server-five-gamma.vercel.app/api/v1/touristSpot/byCountry/${params.name}`
+          ),
       },
     ],
   },
