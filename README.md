@@ -41,4 +41,9 @@ Explore the live TravelGo website https://tourism-management-59876.web.app/
 3. Start the development server with `npm run dev`.
 4. Explore the TravelGo website locally on your machine.
 
+## Getting Started:
+
+1. React Awesome reveal.
+2. React-tooltip.
+
 Enjoy exploring our collection of captivating travel destinations on TravelGo! Feel free to contribute to our project and enhance the experience for all travel enthusiasts.
