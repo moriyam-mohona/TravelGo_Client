@@ -21,7 +21,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/touristSpot"),
       },
       {
         path: "/allTouristsSpot",
@@ -30,7 +29,10 @@ const router = createBrowserRouter([
             <AllTouristSpot></AllTouristSpot>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/touristSpot"),
+        loader: () =>
+          fetch(
+            "https://assignment-10-server-five-gamma.vercel.app/api/v1/touristSpot"
+          ),
       },
       {
         path: "/allTouristsSpot/:_id",
@@ -39,16 +41,22 @@ const router = createBrowserRouter([
             <AllTouristSpotDetails></AllTouristSpotDetails>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/touristSpot"),
+        loader: () =>
+          fetch(
+            "https://assignment-10-server-five-gamma.vercel.app/api/v1/touristSpot"
+          ),
       },
       {
-        path: "/touristSpot/:_id",
+        path: "/touristSpot/:id",
         element: (
           <PrivateRoute>
             <TouristSpotDetails></TouristSpotDetails>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/touristSpot"),
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment-10-server-five-gamma.vercel.app/api/v1/touristSpot/byId/${params.id}`
+          ),
       },
 
       {
@@ -82,7 +90,8 @@ const router = createBrowserRouter([
             <UpdatePage></UpdatePage>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/touristSpot"),
+        loader: () =>
+          fetch("https://assignment-10-server-five-gamma.vercel.app/api/v1"),
       },
     ],
   },

@@ -8,7 +8,9 @@ const MyList = () => {
   const [spot, setSpot] = useState([]);
   const [control, setControl] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/touristSpot/${user?.email}`)
+    fetch(
+      `https://assignment-10-server-five-gamma.vercel.app/api/v1/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setSpot(data); // Update the spot state with the fetched data
@@ -32,9 +34,12 @@ const MyList = () => {
           text: "Your file has been deleted.",
           icon: "success",
         });
-        fetch(`http://localhost:5000/touristSpot/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://assignment-10-server-five-gamma.vercel.app/api/v1/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deleteCount > 0) {

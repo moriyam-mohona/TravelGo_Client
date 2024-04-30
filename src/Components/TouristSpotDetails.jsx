@@ -1,10 +1,8 @@
 import { Helmet } from "react-helmet-async";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 const TouristSpotDetails = () => {
-  const touristSpot = useLoaderData();
-  const { _id } = useParams();
-  const currentSpot = touristSpot.find((e) => e._id === _id);
+  const currentSpot = useLoaderData();
 
   return (
     <div className="px-2 sm:px-5 md:px-10 lg:px-10">

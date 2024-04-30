@@ -9,7 +9,7 @@ const UpdatePage = () => {
   const [spot, setSpot] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/touristSpot/${id}`)
+    fetch(`https://assignment-10-server-five-gamma.vercel.app/api/v1/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setSpot(data);
@@ -43,7 +43,7 @@ const UpdatePage = () => {
     console.log(updateSpot);
 
     //send data to the server
-    fetch(`http://localhost:5000/updateSpot/${id}`, {
+    fetch(`assignment-10-server-nine-liard.vercel.app/updateSpot/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

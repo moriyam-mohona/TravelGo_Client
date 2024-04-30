@@ -38,13 +38,16 @@ function AddTouristsSpotForm() {
     // console.log(newTouristSpot);
 
     //send data to the server
-    fetch("http://localhost:5000/touristSpot", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newTouristSpot),
-    })
+    fetch(
+      "https://assignment-10-server-five-gamma.vercel.app/api/v1/touristSpot",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newTouristSpot),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
