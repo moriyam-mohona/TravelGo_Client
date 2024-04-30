@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdatePage = () => {
   const { id } = useParams();
@@ -52,7 +53,7 @@ const UpdatePage = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
             text: "Spot Updated Successfully",
