@@ -22,7 +22,7 @@ const AllTouristSpotCard = ({ allTouristSpot }) => {
         />
         <h2 className="text-2xl font-semibold">{touristsSpotName}</h2>
         <div className="flex  items-start justify-between w-full gap-2">
-          <p className="font-normal text-lg">{averageCost}</p>
+          <p className="font-normal text-lg">${averageCost}Per Person</p>
           <p className="flex items-center gap-1 font-normal text-lg">
             <CiViewTimeline />
             {travelTime}
